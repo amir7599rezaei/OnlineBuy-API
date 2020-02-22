@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "OnlineBuy.Repository/1.0.0": {
+        "dependencies": {
+          "OnlineBuy.Data": "1.0.0"
+        },
+        "runtime": {
+          "OnlineBuy.Repository.dll": {}
+        }
+      },
+      "OnlineBuy.Common/1.0.0": {
+        "runtime": {
+          "OnlineBuy.Common.dll": {}
+        }
+      },
+      "OnlineBuy.Data/1.0.0": {
+        "dependencies": {
+          "OnlineBuy.Common": "1.0.0"
+        },
+        "runtime": {
+          "OnlineBuy.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OnlineBuy.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OnlineBuy.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OnlineBuy.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

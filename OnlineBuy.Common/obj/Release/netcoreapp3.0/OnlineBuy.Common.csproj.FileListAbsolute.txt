@@ -1,0 +1,8 @@
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Release\netcoreapp3.0\OnlineBuy.Common.deps.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Release\netcoreapp3.0\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Release\netcoreapp3.0\OnlineBuy.Common.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Release\netcoreapp3.0\OnlineBuy.Common.csprojAssemblyReference.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Release\netcoreapp3.0\OnlineBuy.Common.AssemblyInfoInputs.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Release\netcoreapp3.0\OnlineBuy.Common.AssemblyInfo.cs
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Release\netcoreapp3.0\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Release\netcoreapp3.0\OnlineBuy.Common.pdb

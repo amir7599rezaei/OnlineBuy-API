@@ -1,0 +1,7 @@
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Debug\netcoreapp3.1\OnlineBuy.Common.deps.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Debug\netcoreapp3.1\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\bin\Debug\netcoreapp3.1\OnlineBuy.Common.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.1\OnlineBuy.Common.AssemblyInfoInputs.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.1\OnlineBuy.Common.AssemblyInfo.cs
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.1\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.1\OnlineBuy.Common.pdb

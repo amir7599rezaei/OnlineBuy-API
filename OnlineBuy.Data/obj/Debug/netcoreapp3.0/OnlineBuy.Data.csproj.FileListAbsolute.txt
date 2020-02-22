@@ -1,0 +1,13 @@
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Data.deps.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Data.runtimeconfig.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Data.runtimeconfig.dev.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Data.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Data.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\bin\Debug\netcoreapp3.0\OnlineBuy.Common.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.csprojAssemblyReference.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.AssemblyInfoInputs.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.AssemblyInfo.cs
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.csproj.CopyComplete
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Data\obj\Debug\netcoreapp3.0\OnlineBuy.Data.pdb

@@ -1,0 +1,13 @@
+.vs
+
+OnlineBuy.Common\obj
+OnlineBuy.Common\bin
+
+OnlineBuy.Data\obj
+OnlineBuy.Data\bin
+
+OnlineBuy.Repository\obj
+OnlineBuy.Repository\bin
+
+OnlineBuy.Service\obj
+OnlineBuy.Service\bin

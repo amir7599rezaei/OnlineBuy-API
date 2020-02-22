@@ -1,0 +1,15 @@
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Repository.deps.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Repository.runtimeconfig.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Repository.runtimeconfig.dev.json
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Repository.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Repository.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Common.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Data.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Data.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\bin\Release\netcoreapp3.0\OnlineBuy.Common.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.csprojAssemblyReference.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.AssemblyInfoInputs.cache
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.AssemblyInfo.cs
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.csproj.CopyComplete
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.dll
+H:\Iman_project\OnlineBuy\OnlineBuy.Repository\obj\Release\netcoreapp3.0\OnlineBuy.Repository.pdb
