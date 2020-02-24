@@ -19,8 +19,9 @@ namespace OnlineBuy.Repository.Repository.Implements
 
         public  bool ExistNewProductVersionAsync(string version)
         {
-            var product = GetAll().LastOrDefault();
-            return product.Version == version;
+            //var product = GetAll().LastOrDefault();
+            //return product.Version == version;
+            return true;
         }
 
         public async Task<IEnumerable<Product>> GetProductsAsync()

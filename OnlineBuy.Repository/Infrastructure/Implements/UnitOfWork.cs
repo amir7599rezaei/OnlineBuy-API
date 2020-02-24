@@ -21,7 +21,6 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
 
         #region//Prperty of models
         private ICustomerRepository customerRepository;
-
         public ICustomerRepository CustomerRepository
         {
             get
@@ -36,7 +35,6 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
 
 
         private IProductRepository productRepository;
-
         public IProductRepository ProductRepository
         {
             get
@@ -48,10 +46,9 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
                 return productRepository;
             }
         }
-        
+
 
         private ICustomerSmsCodeRepository customerSmsCodeRepository;
-
         public ICustomerSmsCodeRepository CustomerSmsCodeRepository
         {
             get
@@ -62,7 +59,34 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
                 }
                 return customerSmsCodeRepository;
             }
-            
+
+        }
+
+        private IProductPriceRepository productPriceRepository;
+        public IProductPriceRepository ProductPriceRepository
+        {
+            get
+            {
+                if (productPriceRepository == null)
+                {
+                    productPriceRepository = new ProductPriceRepository(_db);
+                }
+                return productPriceRepository;
+            }
+        }
+
+        private IProductUnitRepository productUnitRepository;
+        public IProductUnitRepository ProductUnitRepository
+        {
+            get
+            {
+                if (productUnitRepository == null)
+                {
+                    productUnitRepository = new ProductUnitRepository(_db);
+                }
+                return productUnitRepository;
+            }
+
         }
         #endregion
 

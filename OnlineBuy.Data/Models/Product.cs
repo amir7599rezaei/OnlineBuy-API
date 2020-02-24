@@ -14,14 +14,18 @@ namespace OnlineBuy.Data.Models
 
         [Required]
         public string Name { get; set; }
-        [Required]
-        public int Amount { get; set; }
-        [Required]
-        public string Scale { get; set; }
+        
+        public string Title { get; set; }
+
         public bool IsExits { get; set; }
+
         [Required]
-        public string Version { get; set; }        
-        public string SqlCommand { get; set; }
+        public string Provider { get; set; }
+
+        public string BarcodeNumber { get; set; }
+
+        public string Description { get; set; }
+
         [Required]
         public DateTime ProductDate { get; set; }
         [Required]

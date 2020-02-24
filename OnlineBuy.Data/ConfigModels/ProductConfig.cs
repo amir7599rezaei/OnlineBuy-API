@@ -12,8 +12,8 @@ namespace OnlineBuy.Data.ConfigModels
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.Property(p => p.Name).HasMaxLength(70);
-            builder.Property(p => p.Scale).HasMaxLength(20);
-            builder.Property(p => p.Version).HasMaxLength(20);
+            builder.Property(p => p.Title).HasMaxLength(70);
+            builder.Property(p => p.Provider).HasMaxLength(100);
         }
     }
 }

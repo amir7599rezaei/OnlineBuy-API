@@ -13,6 +13,8 @@ namespace OnlineBuy.Repository.Infrastructure.Interfaces
         public ICustomerRepository CustomerRepository { get; }
         public IProductRepository ProductRepository { get; }        
         public ICustomerSmsCodeRepository CustomerSmsCodeRepository { get; }
+        public IProductPriceRepository ProductPriceRepository { get;  }
+        public IProductUnitRepository ProductUnitRepository { get;  }
 
         void Save();
 

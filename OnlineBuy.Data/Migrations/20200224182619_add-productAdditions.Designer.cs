@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineBuy.Data.DataContext;
 
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    partial class OnlineBuyContextModelSnapshot : ModelSnapshot
+    [Migration("20200224182619_add-productAdditions")]
+    partial class addproductAdditions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,9 +271,8 @@ namespace OnlineBuy.Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                    b.Property<int>("Name")
+                        .HasColumnType("int")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");

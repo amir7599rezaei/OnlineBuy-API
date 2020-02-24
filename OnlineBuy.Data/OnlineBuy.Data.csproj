@@ -28,6 +28,18 @@
     <Compile Remove="Migrations\20200211060340_add-config-models.Designer.cs" />
     <Compile Remove="Migrations\20200211061808_add-customer-smsCode-config.cs" />
     <Compile Remove="Migrations\20200211061808_add-customer-smsCode-config.Designer.cs" />
+    <Compile Remove="Migrations\20200213063159_modify customerSmsCode-duration.cs" />
+    <Compile Remove="Migrations\20200213063159_modify customerSmsCode-duration.Designer.cs" />
+    <Compile Remove="Migrations\20200213063549_remove durationCode.cs" />
+    <Compile Remove="Migrations\20200213063549_remove durationCode.Designer.cs" />
+    <Compile Remove="Migrations\20200213063829_modify-duration.cs" />
+    <Compile Remove="Migrations\20200213063829_modify-duration.Designer.cs" />
+    <Compile Remove="Migrations\20200214081530_add-postalCode.cs" />
+    <Compile Remove="Migrations\20200214081530_add-postalCode.Designer.cs" />
+    <Compile Remove="Migrations\20200224182619_add-productAdditions.cs" />
+    <Compile Remove="Migrations\20200224182619_add-productAdditions.Designer.cs" />
+    <Compile Remove="Migrations\20200224183229_edit-name-productUnit.cs" />
+    <Compile Remove="Migrations\20200224183229_edit-name-productUnit.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,3 +5,4 @@ H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.0\OnlineBuy.Com
 H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.0\OnlineBuy.Common.AssemblyInfo.cs
 H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.0\OnlineBuy.Common.dll
 H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.0\OnlineBuy.Common.pdb
+H:\Iman_project\OnlineBuy\OnlineBuy.Common\obj\Debug\netcoreapp3.0\OnlineBuy.Common.csprojAssemblyReference.cache
