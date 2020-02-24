@@ -14,7 +14,7 @@ namespace OnlineBuy.Data.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(MigrationConnectionString);
+            optionsBuilder.UseSqlServer(ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
