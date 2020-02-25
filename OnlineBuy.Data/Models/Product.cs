@@ -38,5 +38,8 @@ namespace OnlineBuy.Data.Models
         [Required]
         public string CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+        public ICollection<ProductPrice> productPrices { get; set; }
+        public ICollection<ProductImage> productImages { get; set; }
     }
 }

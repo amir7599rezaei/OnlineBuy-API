@@ -31,8 +31,6 @@ namespace OnlineBuy.Data.Models
         public Product Product { get; set; }
 
         [Required]
-        public int ProductUnitId { get; set; }
-        public ProductUnit ProductUnit { get; set; }
-
+        public int ProductUnitId { get; set; }        
     }
 }

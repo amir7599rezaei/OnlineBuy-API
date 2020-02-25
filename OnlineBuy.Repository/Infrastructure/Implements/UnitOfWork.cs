@@ -88,6 +88,21 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             }
 
         }
+
+        private IProductImageRepository productImageRepository;
+
+        public IProductImageRepository ProductImageRepository
+        {
+            get
+            {
+                if (productImageRepository == null)
+                {
+                    productImageRepository = new ProductImageRepository(_db);
+                }
+                return productImageRepository;
+            }
+        }
+
         #endregion
 
 

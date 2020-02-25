@@ -14,7 +14,7 @@ namespace OnlineBuy.Data.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConnectionString);
+            optionsBuilder.UseSqlServer(MigrationConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -24,6 +24,7 @@ namespace OnlineBuy.Data.DataContext
         public DbSet<CustomerSmsCode> CustomerSmsCodes { get; set; }
         public DbSet<ProductPrice> ProductPrices { get; set; }
         public DbSet<ProductUnit> ProductUnits { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
