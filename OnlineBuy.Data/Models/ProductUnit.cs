@@ -14,6 +14,6 @@ namespace OnlineBuy.Data.Models
 
         [Required]
         public string Name { get; set; }
-        public ICollection<ProductPrice> productPrices { get; set; }
+        public ICollection<ProductPrice> ProductPrices { get; set; }
     }
 }
