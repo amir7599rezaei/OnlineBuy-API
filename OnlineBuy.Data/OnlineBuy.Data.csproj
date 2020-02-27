@@ -8,41 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200206152905_Init-db.cs" />
-    <Compile Remove="Migrations\20200206152905_Init-db.Designer.cs" />
-    <Compile Remove="Migrations\20200207085012_add_category_log.cs" />
-    <Compile Remove="Migrations\20200207085012_add_category_log.Designer.cs" />
-    <Compile Remove="Migrations\20200207085456_modify_log.cs" />
-    <Compile Remove="Migrations\20200207085456_modify_log.Designer.cs" />
-    <Compile Remove="Migrations\20200207085745_modify_log_fields.cs" />
-    <Compile Remove="Migrations\20200207085745_modify_log_fields.Designer.cs" />
-    <Compile Remove="Migrations\20200207090026_delete_log_table.cs" />
-    <Compile Remove="Migrations\20200207090026_delete_log_table.Designer.cs" />
-    <Compile Remove="Migrations\20200207090059_add_log.cs" />
-    <Compile Remove="Migrations\20200207090059_add_log.Designer.cs" />
-    <Compile Remove="Migrations\20200207090256_delete_log.cs" />
-    <Compile Remove="Migrations\20200207090256_delete_log.Designer.cs" />
-    <Compile Remove="Migrations\20200207090335_add_logs.cs" />
-    <Compile Remove="Migrations\20200207090335_add_logs.Designer.cs" />
-    <Compile Remove="Migrations\20200211060340_add-config-models.cs" />
-    <Compile Remove="Migrations\20200211060340_add-config-models.Designer.cs" />
-    <Compile Remove="Migrations\20200211061808_add-customer-smsCode-config.cs" />
-    <Compile Remove="Migrations\20200211061808_add-customer-smsCode-config.Designer.cs" />
-    <Compile Remove="Migrations\20200213063159_modify customerSmsCode-duration.cs" />
-    <Compile Remove="Migrations\20200213063159_modify customerSmsCode-duration.Designer.cs" />
-    <Compile Remove="Migrations\20200213063549_remove durationCode.cs" />
-    <Compile Remove="Migrations\20200213063549_remove durationCode.Designer.cs" />
-    <Compile Remove="Migrations\20200213063829_modify-duration.cs" />
-    <Compile Remove="Migrations\20200213063829_modify-duration.Designer.cs" />
-    <Compile Remove="Migrations\20200214081530_add-postalCode.cs" />
-    <Compile Remove="Migrations\20200214081530_add-postalCode.Designer.cs" />
-    <Compile Remove="Migrations\20200224182619_add-productAdditions.cs" />
-    <Compile Remove="Migrations\20200224182619_add-productAdditions.Designer.cs" />
-    <Compile Remove="Migrations\20200224183229_edit-name-productUnit.cs" />
-    <Compile Remove="Migrations\20200224183229_edit-name-productUnit.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OnlineBuy.Common\OnlineBuy.Common.csproj" />    
   </ItemGroup>
 

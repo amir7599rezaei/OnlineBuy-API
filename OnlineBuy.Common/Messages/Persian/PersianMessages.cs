@@ -10,13 +10,15 @@ namespace OnlineBuy.Common.Messages.Persian
         
         public const string ExistCustomer = "شما قبلاً ثبت نام کرده اید";
 
-        public const string SuccessRegister = "ثبت نام با موفقیت انجام شد";
+        public const string SuccessRegister = "ثبت با موفقیت انجام شد";
 
         public const string DuplicateRegister = "شما قبلاً ثبت نام کرده اید";
 
         public const string NotSuccessRequest = "عملیات با خطا موجه شد";
 
         public const string CustomerTitle = "مشتری";
+
+        public const string CategoryTitle = "دسته بندی";
 
         public const string WrongCodeOrMobile = "کد ارسالی یا شماره موبایل اشتباه است";
 
@@ -25,5 +27,7 @@ namespace OnlineBuy.Common.Messages.Persian
         public const string SuccessRecieveCode = "کد با موفقیت دریافت شد";
 
         public const string SuccessCreateToken = "کد احراز هویت با موفقیت ساختع شد";
+
+        public const string AuthenticationFailed = "شما کد امنیتی دریافت نکرده اید";
     }
 }

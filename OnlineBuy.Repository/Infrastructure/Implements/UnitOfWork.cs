@@ -103,6 +103,21 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             }
         }
 
+
+        private ICategoryRepository categoryRepository;
+
+        public ICategoryRepository CategoryRepository
+        {
+            get
+            {
+                if (categoryRepository == null)
+                {
+                    categoryRepository = new CategoryRepository(_db);
+                }
+                return categoryRepository;
+            }
+        }
+
         #endregion
 
 

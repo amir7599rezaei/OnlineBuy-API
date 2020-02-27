@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
+using OnlineBuy.Common.Messages.Persian;
 using OnlineBuy.Common.ResultApiStructure;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace OnlineBuy.Presentation.CustomFilters
                 bool IsAuthenticated = context.HttpContext.User.Identity.IsAuthenticated;
                 if (!IsAuthenticated)
                 {
-                    context.Result = new CustomUnauthorizedResult("Authorization failed.");
+                    context.Result = new CustomUnauthorizedResult(PersianMessages.AuthenticationFailed);
                 }
             }
         }

@@ -6,10 +6,7 @@ using System.Text;
 
 namespace OnlineBuy.Repository.Repository.Interfaces
 {
-    public interface IProductImageRepository : IRepository<ProductImage>
+    public interface ICategoryRepository : IRepository<Category>
     {
-        string ConvertByteToBase64(byte[] imageByte);
-
-        byte[] ConvertBase64ToByte(string base64);
     }
 }

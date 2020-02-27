@@ -14,5 +14,15 @@ namespace OnlineBuy.Repository.Repository.Implements
         {
 
         }
+
+        public byte[] ConvertBase64ToByte(string base64)
+        {
+            return Convert.FromBase64String(base64);
+        }
+
+        public string ConvertByteToBase64(byte[] imageByte)
+        {
+            return Convert.ToBase64String(imageByte, 0, imageByte.Length);
+        }
     }
 }

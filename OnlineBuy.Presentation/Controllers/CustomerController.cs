@@ -25,15 +25,9 @@ namespace OnlineBuy.Presentation.Controllers
     [ApiController]
     public class CustomerController : MyBaseController
     {
-        private readonly IUnitOfWork<OnlineBuyContext> _db;
-        private readonly IConfiguration _config;
-        private readonly IJsonWebTokensService _jwt;
         public CustomerController(IUnitOfWork<OnlineBuyContext> db,
-            IConfiguration config, IJsonWebTokensService jwt)
+            IConfiguration config, IJsonWebTokensService jwt) : base(db, config, jwt)
         {
-            this._db = db;
-            this._config = config;
-            this._jwt = jwt;
         }
 
         [HttpPost("register")]

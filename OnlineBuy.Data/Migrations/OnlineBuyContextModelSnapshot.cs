@@ -221,6 +221,7 @@ namespace OnlineBuy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ProductId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -334,7 +335,9 @@ namespace OnlineBuy.Data.Migrations
                 {
                     b.HasOne("OnlineBuy.Data.Models.Product", "Product")
                         .WithMany("productImages")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OnlineBuy.Data.Models.ProductPrice", b =>
@@ -346,7 +349,7 @@ namespace OnlineBuy.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("OnlineBuy.Data.Models.ProductUnit", null)
-                        .WithMany("productPrices")
+                        .WithMany("ProductPrices")
                         .HasForeignKey("ProductUnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

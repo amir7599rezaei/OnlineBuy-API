@@ -10,8 +10,8 @@ using OnlineBuy.Data.DataContext;
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    [Migration("20200224183229_edit-name-productUnit")]
-    partial class editnameproductUnit
+    [Migration("20200227120413_initilize_tables")]
+    partial class initilize_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -205,6 +205,34 @@ namespace OnlineBuy.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("OnlineBuy.Data.Models.ProductImage", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<byte[]>("Content")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
             modelBuilder.Entity("OnlineBuy.Data.Models.ProductPrice", b =>
                 {
                     b.Property<string>("Id")
@@ -305,16 +333,25 @@ namespace OnlineBuy.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("OnlineBuy.Data.Models.ProductImage", b =>
+                {
+                    b.HasOne("OnlineBuy.Data.Models.Product", "Product")
+                        .WithMany("productImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("OnlineBuy.Data.Models.ProductPrice", b =>
                 {
                     b.HasOne("OnlineBuy.Data.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("productPrices")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OnlineBuy.Data.Models.ProductUnit", "ProductUnit")
-                        .WithMany()
+                    b.HasOne("OnlineBuy.Data.Models.ProductUnit", null)
+                        .WithMany("ProductPrices")
                         .HasForeignKey("ProductUnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

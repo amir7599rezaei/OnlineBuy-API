@@ -18,29 +18,29 @@ namespace OnlineBuy.Presentation
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(Configuration)
-             .CreateLogger();
+            //Log.Logger = new LoggerConfiguration()
+            //.ReadFrom.Configuration(Configuration)
+            // .CreateLogger();
 
-            Serilog.Debugging.SelfLog.Enable(msg =>
-            {
-                Debug.Print(msg);
-                Debugger.Break();
-            });
+            //Serilog.Debugging.SelfLog.Enable(msg =>
+            //{
+            //    Debug.Print(msg);
+            //    Debugger.Break();
+            //});
 
-            try
-            {
-                Log.Information("Getting the motors running...");
-                BuildWebHost(args).Run();
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "Host terminated unexpectedly");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
-            }
+            //try
+            //{
+            //    Log.Information("Getting the motors running...");
+            //    BuildWebHost(args).Run();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.Fatal(ex, "Host terminated unexpectedly");
+            //}
+            //finally
+            //{
+            //    Log.CloseAndFlush();
+            //}
 
             CreateHostBuilder(args).Build().Run();
         }

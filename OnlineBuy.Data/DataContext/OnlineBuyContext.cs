@@ -9,8 +9,15 @@ namespace OnlineBuy.Data.DataContext
 {
     public class OnlineBuyContext : DbContext
     {
-        public static string ConnectionString;
-        private string MigrationConnectionString = "Data Source=(local);Initial Catalog=OnlineBuyDb; Integrated Security=True; MultipleActiveResultSets=True";
+        public static string ConnectionString;        
+       
+        public OnlineBuyContext(DbContextOptions option) : base(option)
+        {            
+        }
+
+        public OnlineBuyContext() : base()
+        {
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,7 +27,7 @@ namespace OnlineBuy.Data.DataContext
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }        
+        public DbSet<Category> Categories { get; set; }
         public DbSet<CustomerSmsCode> CustomerSmsCodes { get; set; }
         public DbSet<ProductPrice> ProductPrices { get; set; }
         public DbSet<ProductUnit> ProductUnits { get; set; }
@@ -36,7 +43,7 @@ namespace OnlineBuy.Data.DataContext
             modelBuilder.ApplyConfiguration(new ProductUnitConfig());
 
             base.OnModelCreating(modelBuilder);
-        }
+        }        
 
     }
 }

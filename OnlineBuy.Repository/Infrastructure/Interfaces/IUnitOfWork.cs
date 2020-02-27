@@ -16,7 +16,7 @@ namespace OnlineBuy.Repository.Infrastructure.Interfaces
         public IProductPriceRepository ProductPriceRepository { get;  }
         public IProductUnitRepository ProductUnitRepository { get;  }
         public IProductImageRepository ProductImageRepository { get;  }
-
+        public ICategoryRepository CategoryRepository{ get; }
         void Save();
 
         Task<int> SaveAsync();
