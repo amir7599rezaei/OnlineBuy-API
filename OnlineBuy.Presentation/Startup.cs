@@ -34,6 +34,7 @@ namespace OnlineBuy.Presentation
         {
             Configuration = configuration;
         }
+       
 
         public IConfiguration Configuration { get; }
 

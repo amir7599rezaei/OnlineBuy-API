@@ -6,7 +6,6 @@ using OnlineBuy.Service.JWT.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace OnlineBuy.Presentation.Controllers
 {
@@ -40,6 +39,8 @@ namespace OnlineBuy.Presentation.Controllers
         protected TimeSpan GetCurrentTime() =>
             TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
 
+        protected void Log(string message) =>
+            Serilog.Log.Information(message);
 
     }
 }

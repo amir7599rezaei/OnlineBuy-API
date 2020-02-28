@@ -42,16 +42,6 @@ namespace OnlineBuy.Presentation.Controllers
                 Status = StatusMethods.SuccessRegister.GetTitle(),
                 Message = StatusMethods.SuccessRegister.GetDescription(),
             });
-        }
-
-        [HttpGet("getAll")]        
-        public async Task<IActionResult> GetAll()
-        {            
-            var categories = await _db.CategoryRepository.GetAllAsync();
-            return Ok(new
-            {
-                categories
-            });
-        }        
+        }           
     }
 }

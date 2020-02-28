@@ -10,8 +10,8 @@ using OnlineBuy.Data.DataContext;
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    [Migration("20200227120413_initilize_tables")]
-    partial class initilize_tables
+    [Migration("20200228082611_initilize-tables")]
+    partial class initilizetables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -145,6 +145,41 @@ namespace OnlineBuy.Data.Migrations
                     b.ToTable("CustomerSmsCodes");
                 });
 
+            modelBuilder.Entity("OnlineBuy.Data.Models.LogReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Exception")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Level")
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
+
+                    b.Property<string>("LogEvent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageTemplate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Properties")
+                        .HasColumnType("XML");
+
+                    b.Property<DateTimeOffset>("TimeStamp")
+                        .HasColumnType("datetimeoffset")
+                        .HasMaxLength(7);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Log");
+                });
+
             modelBuilder.Entity("OnlineBuy.Data.Models.Product", b =>
                 {
                     b.Property<string>("Id")
@@ -250,11 +285,6 @@ namespace OnlineBuy.Data.Migrations
                     b.Property<double>("FinalPrice")
                         .HasColumnType("float");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
                     b.Property<int>("OffPercent")
                         .HasColumnType("int");
 
@@ -336,7 +366,7 @@ namespace OnlineBuy.Data.Migrations
             modelBuilder.Entity("OnlineBuy.Data.Models.ProductImage", b =>
                 {
                     b.HasOne("OnlineBuy.Data.Models.Product", "Product")
-                        .WithMany("productImages")
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -345,7 +375,7 @@ namespace OnlineBuy.Data.Migrations
             modelBuilder.Entity("OnlineBuy.Data.Models.ProductPrice", b =>
                 {
                     b.HasOne("OnlineBuy.Data.Models.Product", "Product")
-                        .WithMany("productPrices")
+                        .WithMany("ProductPrices")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

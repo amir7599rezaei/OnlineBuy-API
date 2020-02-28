@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OnlineBuy.Data.Models
+namespace OnlineBuy.Data.ViewModels
 {
-    public class Product : BaseEntity<string>
+    public class ProductViewModel
     {
-        public Product() : base()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
-
         [Required]
         public string Name { get; set; }
-        
+
         public string Title { get; set; }
 
         public bool IsExits { get; set; }
@@ -33,13 +28,19 @@ namespace OnlineBuy.Data.Models
 
         [Required]
         public string CategoryId { get; set; }
-        public Category Category { get; set; }
 
         [Required]
-        public string CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public string ProductUnitId { get; set; }
 
-        public ICollection<ProductPrice> ProductPrices { get; set; }
-        public ICollection<ProductImage> ProductImages { get; set; }
+        public double PrimaryPrice { get; set; }
+
+        public double FinalPrice { get; set; }
+
+        [Required]
+        public double ShowPrice { get; set; }
+
+        public double OffPrice { get; set; }
+
+        public int OffPercent { get; set; }
     }
 }

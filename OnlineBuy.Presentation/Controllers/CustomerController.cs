@@ -17,7 +17,7 @@ using OnlineBuy.Data.ViewModels;
 using OnlineBuy.Presentation.CustomFilters;
 using OnlineBuy.Repository.Infrastructure.Interfaces;
 using OnlineBuy.Service.JWT.Interface;
-using Serilog;
+
 
 namespace OnlineBuy.Presentation.Controllers
 {
@@ -176,18 +176,7 @@ namespace OnlineBuy.Presentation.Controllers
                 default:
                     return null;
             }
-        }
-
-        [HttpPost("Test")]
-        [Authorized]
-        public IActionResult TestSerilog()
-        {
-            return Ok(new
-            {
-                result = GetIdentifyCode()
-            });
-
-        }
+        }        
 
     }
 }

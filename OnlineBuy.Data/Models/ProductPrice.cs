@@ -10,10 +10,7 @@ namespace OnlineBuy.Data.Models
         public ProductPrice()
         {
             Id = Guid.NewGuid().ToString();
-        }
-
-        [Required]
-        public string Name { get; set; }
+        }      
         
         public double PrimaryPrice { get; set; }
 
