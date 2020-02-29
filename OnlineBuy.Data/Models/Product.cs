@@ -25,17 +25,14 @@ namespace OnlineBuy.Data.Models
         public string BarcodeNumber { get; set; }
 
         public string Description { get; set; }
-
-        [Required]
-        public DateTime ProductDate { get; set; }
-        [Required]
+        
+        public DateTime ProductDate { get; set; }        
         public DateTime ExpireDate { get; set; }
 
         [Required]
         public string CategoryId { get; set; }
         public Category Category { get; set; }
-
-        [Required]
+        
         public string CustomerId { get; set; }
         public Customer Customer { get; set; }
 

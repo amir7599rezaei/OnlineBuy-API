@@ -9,8 +9,6 @@ namespace OnlineBuy.Repository.Repository.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        bool ExistNewProductVersionAsync(string version);
-
-        Task<IEnumerable<Product>> GetProductsAsync();
+        IEnumerable<object> GetProducts();
     }
 }

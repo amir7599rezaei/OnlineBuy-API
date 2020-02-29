@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineBuy.Common.Messages.Persian;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -7,40 +8,52 @@ namespace OnlineBuy.Data.ViewModels
 {
     public class ProductViewModel
     {
-        [Required]
-        public string Name { get; set; }
+        public class ProductRegister
+        {
 
-        public string Title { get; set; }
+            [Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public string Name { get; set; }
 
-        public bool IsExits { get; set; }
+            public string Title { get; set; }
 
-        [Required]
-        public string Provider { get; set; }
+            public bool IsExits { get; set; }
 
-        public string BarcodeNumber { get; set; }
+            [Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public string Provider { get; set; }
 
-        public string Description { get; set; }
+            public string BarcodeNumber { get; set; }
 
-        [Required]
-        public DateTime ProductDate { get; set; }
-        [Required]
-        public DateTime ExpireDate { get; set; }
+            public string Description { get; set; }
 
-        [Required]
-        public string CategoryId { get; set; }
+            //[Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public DateTime ProductDate { get; set; }
+            //[Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public DateTime ExpireDate { get; set; }
 
-        [Required]
-        public string ProductUnitId { get; set; }
+            [Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public string CategoryId { get; set; }
 
-        public double PrimaryPrice { get; set; }
+            public ICollection<ProductPriceRegister> ProductPriceRegisters { set; get; }
+        }
 
-        public double FinalPrice { get; set; }
 
-        [Required]
-        public double ShowPrice { get; set; }
+        public class ProductPriceRegister
+        {
 
-        public double OffPrice { get; set; }
+            [Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public int ProductUnitId { get; set; }
 
-        public int OffPercent { get; set; }
+            public double PrimaryPrice { get; set; }
+
+            public double FinalPrice { get; set; }
+
+            [Required(ErrorMessage = PersianMessages.RequireMessage)]
+            public double ShowPrice { get; set; }
+
+            public double OffPrice { get; set; }
+
+            public int OffPercent { get; set; }
+        }
     }
+
 }

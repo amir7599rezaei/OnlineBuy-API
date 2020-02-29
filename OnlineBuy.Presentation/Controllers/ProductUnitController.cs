@@ -10,62 +10,59 @@ using OnlineBuy.Common.ResultApiStructure;
 using OnlineBuy.Common.Utility;
 using OnlineBuy.Data.DataContext;
 using OnlineBuy.Data.Models;
-using OnlineBuy.Presentation.CustomFilters;
 using OnlineBuy.Repository.Infrastructure.Interfaces;
-using static OnlineBuy.Data.ViewModels.CategoryViewModel;
+using static OnlineBuy.Data.ViewModels.ProductUnitViewModel;
 
 namespace OnlineBuy.Presentation.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class CategoryController : MyBaseController
+    public class ProductUnitController : MyBaseController
     {
-        public CategoryController(IUnitOfWork<OnlineBuyContext> db) : base(db)
+        public ProductUnitController(IUnitOfWork<OnlineBuyContext> db) : base(db)
         {
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(CategoryRegister categoryRegister)
+        public async Task<IActionResult> Register(ProductUnitRegister productUnitRegister)
         {
-            var category = new Category
+            var productUnit = new ProductUnit
             {
-                Name = categoryRegister.Name
+                Name = productUnitRegister.Name
             };
-
-            await _db.CategoryRepository.InsertAsync(category);
-            var res=await _db.SaveAsync();
+            await _db.ProductUnitRepository.InsertAsync(productUnit);
+            var res = await _db.SaveAsync();
 
             if (res > 0)
             {
                 return Ok(new ReturnApiMessages
                 {
-                    Title = PersianMessages.CategoryTitle,
+                    Title = PersianMessages.ProductUnitTitle,
                     Code = (int)StatusMethods.SuccessRegister,
                     Status = StatusMethods.SuccessRegister.GetTitle(),
-                    Message = StatusMethods.SuccessRegister.GetDescription(),
+                    Message = StatusMethods.SuccessRegister.GetDescription()
                 });
             }
             else
             {
                 return BadRequest(new ReturnApiMessages
                 {
-                    Title = PersianMessages.CategoryTitle,
+                    Title = PersianMessages.ProductUnitTitle,
                     Code = (int)StatusMethods.OperationFailed,
                     Status = StatusMethods.OperationFailed.GetTitle(),
-                    Message = StatusMethods.OperationFailed.GetDescription(),
-                });
+                    Message = StatusMethods.OperationFailed.GetDescription()
+                }); ;
             }
-           
-        }   
-        
-        [HttpGet("categories")]
-        public async Task<IActionResult> Categories()
+        }
+
+        [HttpGet("productUnits")]
+        public async Task<IActionResult> ProductUnits()
         {
             return Ok(new
             {
-                Categories = await _db.CategoryRepository.GetAllAsync()
+                ProductUnits = await _db.ProductUnitRepository.GetAllAsync()
             });
-            
+
         }
     }
 }

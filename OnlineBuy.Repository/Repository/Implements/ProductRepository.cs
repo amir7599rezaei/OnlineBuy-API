@@ -14,19 +14,29 @@ namespace OnlineBuy.Repository.Repository.Implements
     {
         public ProductRepository(DbContext dbcontext) : base(dbcontext)
         {
-
         }
 
-        public  bool ExistNewProductVersionAsync(string version)
+        public IEnumerable<object> GetProducts()
         {
-            //var product = GetAll().LastOrDefault();
-            //return product.Version == version;
-            return true;
-        }
-
-        public async Task<IEnumerable<Product>> GetProductsAsync()
-        {
-            return await GetAllAsync();
+            using (Data.DataContext.OnlineBuyContext context = new Data.DataContext.OnlineBuyContext())
+            {
+                return (from p in context.Products
+                        join pp in context.ProductPrices on p.Id equals pp.ProductId
+                        join pu in context.ProductUnits on pp.ProductUnitId equals pu.Id
+                        select new
+                        {
+                            p.Id,
+                            ProductName = p.Name,
+                            p.Title,
+                            p.Description,
+                            pp.PrimaryPrice,
+                            pp.FinalPrice,
+                            pp.ShowPrice,
+                            pp.OffPrice,
+                            pp.OffPercent,
+                            UnitName = pu.Name
+                        }).ToArray();
+            }
         }
     }
 }

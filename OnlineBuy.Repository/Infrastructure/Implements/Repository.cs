@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineBuy.Repository.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnlineBuy.Repository.Infrastructure.Implements
 {
-    public abstract class Repository<TEntity>
+    public abstract class Repository<TEntity>: IRepository<TEntity>
         where TEntity:class,new()
     {
         private readonly DbContext _db;
@@ -63,9 +64,13 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
 
         public void Insert(TEntity entity)
         {
-            _dbset.Add(entity);
+            _dbset.Add(entity);            
         }
 
+        public void InsertRange(IList<TEntity> entities)
+        {
+            _dbset.AddRange(entities);
+        }
 
         public void Update(TEntity entity)
         {
@@ -101,6 +106,11 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             await _dbset.AddAsync(entity);
         }
 
+        public async Task InsertRangeAsync(IList<TEntity> entities)
+        {
+            await _dbset.AddRangeAsync(entities);
+        }
+
         #endregion
 
         #region disposing
@@ -119,7 +129,8 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
         public void Dispose()
         {
             Dispose(true);
-        }
+        }       
+      
         #endregion
 
         ~Repository()

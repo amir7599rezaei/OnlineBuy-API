@@ -123,12 +123,27 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
 
         public void Save()
         {
-            _db.SaveChanges();
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }            
         }
 
         public async Task<int> SaveAsync()
         {
-            return await _db.SaveChangesAsync();
+            try
+            {
+                return await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }            
         }
 
         private bool disposed = false;

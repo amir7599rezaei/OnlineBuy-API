@@ -20,6 +20,10 @@ namespace OnlineBuy.Common.Messages.Persian
 
         public const string CategoryTitle = "دسته بندی";
 
+        public const string ProductUnitTitle = "واحد محصول";
+
+        public const string ProductTitle = "محصول";
+
         public const string WrongCodeOrMobile = "کد ارسالی یا شماره موبایل اشتباه است";
 
         public const string PastTime = "از زمان کد دریافت شده گذشته است";
