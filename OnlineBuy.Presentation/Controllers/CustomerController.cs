@@ -84,10 +84,23 @@ namespace OnlineBuy.Presentation.Controllers
         [HttpPost("validation")]
         public async Task<IActionResult> Validation(CustomerDot.CustomerValidation customerValidation)
         {
-            var registeredCustomer = await _db.CustomerRepository.GetByIdAsync(customerValidation.CustomerId);
-            var recievedCustomer = await _db.CustomerSmsCodeRepository.CustomerIsRecievedCode(customerValidation.CustomerId);
-
             var returnMessage = new ReturnApiMessages();
+            var registeredCustomer = await _db.CustomerRepository.GetAsync(c => c.Mobile == customerValidation.Mobile);
+            if (registeredCustomer == null)
+            {
+                return BadRequest(new ReturnApiMessages
+                {
+                    IsRegistered = false
+                });
+            }
+
+
+            returnMessage.IsRegistered = true;
+            var recievedCustomer = await _db.CustomerSmsCodeRepository.CustomerIsRecievedCode(registeredCustomer.Id);
+            if (recievedCustomer)            
+                returnMessage.IsRecievedCode = true;                
+            
+
             returnMessage.Code = (int)StatusMethods.SuccessCreateToken;
             returnMessage.Title = PersianMessages.CustomerTitle;
             returnMessage.Status = StatusMethods.SuccessCreateToken.GetTitle();
@@ -97,15 +110,7 @@ namespace OnlineBuy.Presentation.Controllers
                         new Claim(ClaimTypes.Name, registeredCustomer.Name+" "+registeredCustomer.Family),
                     },
                     DateTime.Now.AddSeconds(double.Parse(_config.GetSection("Appsettings:TokenTimeSecond").Value)));
-
-            if (registeredCustomer != null)
-            {
-                returnMessage.IsRegistered = true;
-            }
-            if (recievedCustomer)
-            {
-                returnMessage.IsRecievedCode = true;
-            }
+                      
 
             return Ok(returnMessage);
         }
@@ -176,7 +181,7 @@ namespace OnlineBuy.Presentation.Controllers
                 default:
                     return null;
             }
-        }        
+        }
 
     }
 }

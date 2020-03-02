@@ -33,10 +33,7 @@ namespace OnlineBuy.Data.ViewModels
         public class CustomerValidation
         {
             [Required(ErrorMessage = PersianMessages.RequireMessage)]
-            public string Mobile { get; set; }
-
-            [Required(ErrorMessage = PersianMessages.RequireMessage)]
-            public string CustomerId { get; set; }
+            public string Mobile { get; set; }           
         }
 
         public class CustomerSendCode
