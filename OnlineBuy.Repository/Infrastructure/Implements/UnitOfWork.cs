@@ -118,6 +118,21 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             }
         }
 
+        private ICustomerOrderRepository customerOrderRepository;
+
+        public ICustomerOrderRepository CustomerOrderRepository
+        {
+            get
+            {
+                if (customerOrderRepository == null)
+                {
+                    customerOrderRepository = new CustomerOrderRepository(_db);
+                }
+                return customerOrderRepository;
+            }
+        }
+
+
         #endregion
 
 
@@ -131,7 +146,7 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             {
 
                 throw;
-            }            
+            }
         }
 
         public async Task<int> SaveAsync()
@@ -143,7 +158,7 @@ namespace OnlineBuy.Repository.Infrastructure.Implements
             catch (Exception ex)
             {
                 throw;
-            }            
+            }
         }
 
         private bool disposed = false;

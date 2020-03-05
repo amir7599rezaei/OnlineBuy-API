@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineBuy.Data.DataContext;
 
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    partial class OnlineBuyContextModelSnapshot : ModelSnapshot
+    [Migration("20200305072033_add-customerorder-productUnitId")]
+    partial class addcustomerorderproductUnitId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,7 +137,10 @@ namespace OnlineBuy.Data.Migrations
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ProductUnitId")
+                    b.Property<string>("ProductUnitId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductUnitId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -144,7 +149,7 @@ namespace OnlineBuy.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("ProductUnitId");
+                    b.HasIndex("ProductUnitId1");
 
                     b.ToTable("CustomerOrders");
                 });
@@ -391,9 +396,7 @@ namespace OnlineBuy.Data.Migrations
 
                     b.HasOne("OnlineBuy.Data.Models.ProductUnit", "ProductUnit")
                         .WithMany()
-                        .HasForeignKey("ProductUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductUnitId1");
                 });
 
             modelBuilder.Entity("OnlineBuy.Data.Models.CustomerSmsCode", b =>

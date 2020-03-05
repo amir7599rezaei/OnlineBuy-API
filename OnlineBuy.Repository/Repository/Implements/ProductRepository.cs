@@ -34,7 +34,10 @@ namespace OnlineBuy.Repository.Repository.Implements
                             pp.ShowPrice,
                             pp.OffPrice,
                             pp.OffPercent,
-                            UnitName = pu.Name
+                            UnitName = pu.Name,
+                            ShowInCartCount = false,
+                            CartCount = 1
+
                         }).ToArray();
             }
         }

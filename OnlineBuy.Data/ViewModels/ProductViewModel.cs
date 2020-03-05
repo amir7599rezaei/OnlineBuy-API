@@ -54,6 +54,21 @@ namespace OnlineBuy.Data.ViewModels
 
             public int OffPercent { get; set; }
         }
+
+        public class CartRegister
+        {            
+            public string CustomerId { get; set; }
+            public ICollection<ProductOrder> ProductOrders { get; set; }
+        }
+
+        public class ProductOrder
+        {
+            public string ProductId { get; set; }
+            public int ProductUnitId { get; set; }
+            public int CartCount { get; set; }
+            public double FinalPrice { get; set; }
+        }
+
     }
 
 }

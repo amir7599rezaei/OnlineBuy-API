@@ -35,6 +35,7 @@ namespace OnlineBuy.Data.DataContext
         public DbSet<ProductUnit> ProductUnits { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<LogReport> Log { get; set; }
+        public DbSet<CustomerOrder> CustomerOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

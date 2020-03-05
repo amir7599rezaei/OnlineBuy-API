@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineBuy.Data.DataContext;
 
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    partial class OnlineBuyContextModelSnapshot : ModelSnapshot
+    [Migration("20200305065859_add-customerorder")]
+    partial class addcustomerorder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,16 +137,11 @@ namespace OnlineBuy.Data.Migrations
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ProductUnitId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("ProductUnitId");
 
                     b.ToTable("CustomerOrders");
                 });
@@ -388,12 +385,6 @@ namespace OnlineBuy.Data.Migrations
                     b.HasOne("OnlineBuy.Data.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
-
-                    b.HasOne("OnlineBuy.Data.Models.ProductUnit", "ProductUnit")
-                        .WithMany()
-                        .HasForeignKey("ProductUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("OnlineBuy.Data.Models.CustomerSmsCode", b =>

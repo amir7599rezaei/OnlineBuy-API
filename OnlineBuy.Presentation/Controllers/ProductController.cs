@@ -89,5 +89,46 @@ namespace OnlineBuy.Presentation.Controllers
                 Products = _db.ProductRepository.GetProducts()
             });
         }
+
+        [HttpPost("cartRegister")]
+        public async Task<IActionResult> CartRegister(CartRegister cartRegister)
+        {
+            var customerOrders = new List<CustomerOrder>();
+            foreach (var item in cartRegister.ProductOrders)
+            {
+                customerOrders.Add(new CustomerOrder
+                {
+                    CustomerId = cartRegister.CustomerId,
+                    ProductId = item.ProductId,
+                    CartCount = item.CartCount,
+                    FinalPrice = item.FinalPrice,
+                    ProductUnitId = item.ProductUnitId,
+                    OrderDate = DateTime.Now
+                });
+            }
+
+            await _db.CustomerOrderRepository.InsertRangeAsync(customerOrders);
+            var res = await _db.SaveAsync();
+            if (res > 0)
+            {
+                return Ok(new ReturnApiMessages
+                {
+                    Title = PersianMessages.ProductTitle,
+                    Code = (int)StatusMethods.SuccessRegister,
+                    Status = StatusMethods.SuccessRegister.GetTitle(),
+                    Message = StatusMethods.SuccessRegister.GetDescription()
+                });
+            }
+            else
+            {
+                return BadRequest(new ReturnApiMessages
+                {
+                    Title = PersianMessages.ProductTitle,
+                    Code = (int)StatusMethods.OperationFailed,
+                    Status = StatusMethods.OperationFailed.GetTitle(),
+                    Message = StatusMethods.OperationFailed.GetDescription()
+                });
+            }
+        }
     }
 }
