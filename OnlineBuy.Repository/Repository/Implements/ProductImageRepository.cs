@@ -17,7 +17,9 @@ namespace OnlineBuy.Repository.Repository.Implements
 
         public byte[] ConvertBase64ToByte(string base64)
         {
-            return Convert.FromBase64String(base64);
+
+            string convert = base64.Replace("data:image/png;base64,", String.Empty);
+            return Convert.FromBase64String(convert);
         }
 
         public string ConvertByteToBase64(byte[] imageByte)

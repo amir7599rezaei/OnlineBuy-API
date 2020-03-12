@@ -65,8 +65,13 @@ namespace OnlineBuy.Data.ViewModels
         {
             public string ProductId { get; set; }
             public int ProductUnitId { get; set; }
-            public int CartCount { get; set; }
-            public double FinalPrice { get; set; }
+            public int CartCount { get; set; }            
+        }
+
+        public class ImgaeRegister
+        {
+            public string ProductId { get; set; }
+            public string Image { get; set; }
         }
 
     }

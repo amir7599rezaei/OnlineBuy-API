@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineBuy.Data.Migrations
 {
-    public partial class initilizetables : Migration
+    public partial class initilize_tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -124,7 +124,7 @@ namespace OnlineBuy.Data.Migrations
                     ProductDate = table.Column<DateTime>(nullable: false),
                     ExpireDate = table.Column<DateTime>(nullable: false),
                     CategoryId = table.Column<string>(nullable: false),
-                    CustomerId = table.Column<string>(nullable: false)
+                    CustomerId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -139,6 +139,44 @@ namespace OnlineBuy.Data.Migrations
                         name: "FK_Products_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CustomerOrders",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    DateModified = table.Column<DateTime>(nullable: false),
+                    DateDeleted = table.Column<DateTime>(nullable: false),
+                    ProductId = table.Column<string>(nullable: true),
+                    CustomerId = table.Column<string>(nullable: true),
+                    ProductUnitId = table.Column<int>(nullable: false),
+                    CartCount = table.Column<int>(nullable: false),
+                    FinalPrice = table.Column<double>(nullable: false),
+                    OrderDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerOrders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CustomerOrders_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CustomerOrders_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CustomerOrders_ProductUnits_ProductUnitId",
+                        column: x => x.ProductUnitId,
+                        principalTable: "ProductUnits",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -199,6 +237,21 @@ namespace OnlineBuy.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CustomerOrders_CustomerId",
+                table: "CustomerOrders",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerOrders_ProductId",
+                table: "CustomerOrders",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerOrders_ProductUnitId",
+                table: "CustomerOrders",
+                column: "ProductUnitId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CustomerSmsCodes_CustomerId",
                 table: "CustomerSmsCodes",
                 column: "CustomerId");
@@ -231,6 +284,9 @@ namespace OnlineBuy.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CustomerOrders");
+
             migrationBuilder.DropTable(
                 name: "CustomerSmsCodes");
 

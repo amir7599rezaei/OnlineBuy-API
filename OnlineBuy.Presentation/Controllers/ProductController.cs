@@ -101,7 +101,7 @@ namespace OnlineBuy.Presentation.Controllers
                     CustomerId = cartRegister.CustomerId,
                     ProductId = item.ProductId,
                     CartCount = item.CartCount,
-                    FinalPrice = item.FinalPrice,
+                    FinalPrice = _db.ProductRepository.GetFinalPrice(item.ProductId),
                     ProductUnitId = item.ProductUnitId,
                     OrderDate = DateTime.Now
                 });
@@ -122,6 +122,40 @@ namespace OnlineBuy.Presentation.Controllers
             else
             {
                 return BadRequest(new ReturnApiMessages
+                {
+                    Title = PersianMessages.ProductTitle,
+                    Code = (int)StatusMethods.OperationFailed,
+                    Status = StatusMethods.OperationFailed.GetTitle(),
+                    Message = StatusMethods.OperationFailed.GetDescription()
+                });
+            }
+        }
+
+        [HttpPost("imageRegister")]
+        public async Task<IActionResult> ImageRegister(ImgaeRegister imgaeRegister)
+        {
+            var productImage = new ProductImage
+            {
+                ProductId = imgaeRegister.ProductId,
+                Content = _db.ProductImageRepository.ConvertBase64ToByte(imgaeRegister.Image)
+            };
+
+            await _db.ProductImageRepository.InsertAsync(productImage);
+            var res = await _db.SaveAsync();
+
+            if (res > 0)
+            {
+                return Ok(new ReturnApiMessages
+                {
+                    Title = PersianMessages.ProductTitle,
+                    Code = (int)StatusMethods.SuccessRegister,
+                    Status = StatusMethods.SuccessRegister.GetTitle(),
+                    Message = StatusMethods.SuccessRegister.GetDescription()
+                });
+            }
+            else
+            {
+                return Ok(new ReturnApiMessages
                 {
                     Title = PersianMessages.ProductTitle,
                     Code = (int)StatusMethods.OperationFailed,

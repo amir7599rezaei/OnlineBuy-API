@@ -10,8 +10,8 @@ using OnlineBuy.Data.DataContext;
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    [Migration("20200305072317_edit-customerorder-productUnitId")]
-    partial class editcustomerorderproductUnitId
+    [Migration("20200310155553_initilize_tables")]
+    partial class initilize_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

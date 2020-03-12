@@ -16,16 +16,29 @@ namespace OnlineBuy.Repository.Repository.Implements
         {
         }
 
+        public double GetFinalPrice(string productId)
+        {
+            using (Data.DataContext.OnlineBuyContext context=new Data.DataContext.OnlineBuyContext())
+            {
+                return (from p in context.Products
+                        join pp in context.ProductPrices on p.Id equals pp.ProductId
+                        where p.Id == productId
+                        select pp.FinalPrice).FirstOrDefault();
+            }
+        }
+
         public IEnumerable<object> GetProducts()
         {
             using (Data.DataContext.OnlineBuyContext context = new Data.DataContext.OnlineBuyContext())
             {
+
                 return (from p in context.Products
+                        join img in context.ProductImages on p.Id equals img.ProductId into gl
+                        from imgDef in gl.DefaultIfEmpty()
                         join pp in context.ProductPrices on p.Id equals pp.ProductId
                         join pu in context.ProductUnits on pp.ProductUnitId equals pu.Id
                         select new
                         {
-                            p.Id,
                             ProductName = p.Name,
                             p.Title,
                             p.Description,
@@ -36,7 +49,9 @@ namespace OnlineBuy.Repository.Repository.Implements
                             pp.OffPercent,
                             UnitName = pu.Name,
                             ShowInCartCount = false,
-                            CartCount = 1
+                            CartCount = 1,
+                            Image = imgDef != null ? Convert.ToBase64String(imgDef.Content, 0, imgDef.Content.Length) : string.Empty,
+                            ProductUnitId = pu.Id
 
                         }).ToArray();
             }

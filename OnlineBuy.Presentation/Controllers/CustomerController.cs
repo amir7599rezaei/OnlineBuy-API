@@ -34,7 +34,7 @@ namespace OnlineBuy.Presentation.Controllers
         public async Task<IActionResult> Register(CustomerDot.CustomerRegister customerRegister)
         {
 
-            var retrivedCustomer = await _db.CustomerRepository.GetAsync(c => c.UserName == customerRegister.UserName);
+            var retrivedCustomer = await _db.CustomerRepository.GetAsync(c => c.Mobile == customerRegister.Mobile);
             if (retrivedCustomer != null)
                 return BadRequest(new ReturnApiMessages
                 {

@@ -10,5 +10,7 @@ namespace OnlineBuy.Repository.Repository.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
         IEnumerable<object> GetProducts();
+
+        double GetFinalPrice(string productId);
     }
 }
