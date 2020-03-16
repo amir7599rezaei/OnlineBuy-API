@@ -23,5 +23,8 @@ namespace OnlineBuy.Data.Models
         public int CartCount { get; set; }
         public double FinalPrice { get; set; }
         public DateTime OrderDate { get; set; }
+
+        public int? StatusCode { get; set; }
+        public string StatusText { get; set; }
     }
 }

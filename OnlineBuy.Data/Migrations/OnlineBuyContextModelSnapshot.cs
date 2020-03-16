@@ -138,6 +138,13 @@ namespace OnlineBuy.Data.Migrations
                     b.Property<int>("ProductUnitId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusText")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
@@ -296,6 +303,10 @@ namespace OnlineBuy.Data.Migrations
 
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FormatContent")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("ProductId")
                         .IsRequired()

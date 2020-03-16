@@ -23,7 +23,7 @@ namespace OnlineBuy.Data.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(MigrationString);
+            optionsBuilder.UseSqlServer(ConnectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -45,6 +45,8 @@ namespace OnlineBuy.Data.DataContext
             modelBuilder.ApplyConfiguration(new CategoryConfig());            
             modelBuilder.ApplyConfiguration(new ProductUnitConfig());
             modelBuilder.ApplyConfiguration(new LogReportConfig());
+            modelBuilder.ApplyConfiguration(new CustomerOrderConfig());
+            modelBuilder.ApplyConfiguration(new ProductImageConfig());
 
             base.OnModelCreating(modelBuilder);
         }        

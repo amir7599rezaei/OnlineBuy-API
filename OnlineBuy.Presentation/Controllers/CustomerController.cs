@@ -97,9 +97,9 @@ namespace OnlineBuy.Presentation.Controllers
 
             returnMessage.IsRegistered = true;
             var recievedCustomer = await _db.CustomerSmsCodeRepository.CustomerIsRecievedCode(registeredCustomer.Id);
-            if (recievedCustomer)            
-                returnMessage.IsRecievedCode = true;                
-            
+            if (recievedCustomer)
+                returnMessage.IsRecievedCode = true;
+
 
             returnMessage.Code = (int)StatusMethods.SuccessCreateToken;
             returnMessage.Title = PersianMessages.CustomerTitle;
@@ -110,7 +110,7 @@ namespace OnlineBuy.Presentation.Controllers
                         new Claim(ClaimTypes.Name, registeredCustomer.Name+" "+registeredCustomer.Family),
                     },
                     DateTime.Now.AddSeconds(double.Parse(_config.GetSection("Appsettings:TokenTimeSecond").Value)));
-                      
+
 
             return Ok(returnMessage);
         }
@@ -119,6 +119,7 @@ namespace OnlineBuy.Presentation.Controllers
         [Authorized]
         public async Task<IActionResult> SendSmsCode(CustomerDot.CustomerSendCode customerSendCode)
         {
+            var customer = await _db.CustomerRepository.GetAsync(c => c.Id == GetIdentifyCode());
             var cusSmsCode = new CustomerSmsCode
             {
                 SmsCode = _db.CustomerSmsCodeRepository.GenerateCode(),
@@ -128,16 +129,48 @@ namespace OnlineBuy.Presentation.Controllers
                 CustomerId = GetIdentifyCode()
             };
             await _db.CustomerSmsCodeRepository.InsertAsync(cusSmsCode);
-            await _db.SaveAsync();
+            var saveResult = await _db.SaveAsync();
 
-            return Ok(new ReturnApiMessages
+            if (saveResult > 0)
             {
-                DurationTime = cusSmsCode.DurationCode,
-                Code = (int)StatusMethods.SuccessSmsCode,
-                Title = PersianMessages.CustomerTitle,
-                Status = StatusMethods.SuccessSmsCode.GetTitle(),
-                SmsCode = cusSmsCode.SmsCode,
-            });
+                SmsService.SendMessageWithCodeResponse res = await new SmsService.
+                   FastSendSoapClient(new SmsService.FastSendSoapClient.EndpointConfiguration())
+                   .SendMessageWithCodeAsync(_config.GetSection("Appsettings:SmsUser").Value,
+                   _config.GetSection("Appsettings:SmsPassword").Value, customer.Mobile, cusSmsCode.SmsCode.ToString());
+
+                if (res.Body.SendMessageWithCodeResult >= 200)
+                {
+                    return Ok(new ReturnApiMessages
+                    {
+                        DurationTime = cusSmsCode.DurationCode,
+                        Code = (int)StatusMethods.SuccessSmsCode,
+                        Title = PersianMessages.CustomerTitle,
+                        Status = StatusMethods.SuccessSmsCode.GetTitle(),
+                        Message=StatusMethods.SuccessSmsCode.GetDescription()
+                    });
+                }
+                else
+                {
+                    return BadRequest(new ReturnApiMessages
+                    {
+                        Code = (int)StatusMethods.FailedSmsCode,
+                        Title = PersianMessages.CustomerTitle,
+                        Status = StatusMethods.FailedSmsCode.GetTitle(),
+                        Message = StatusMethods.FailedSmsCode.GetDescription()
+                    });
+                }
+            }
+            else
+            {
+                return BadRequest(new ReturnApiMessages
+                {
+                    Code = (int)StatusMethods.OperationFailed,
+                    Title = PersianMessages.CustomerTitle,
+                    Status = StatusMethods.OperationFailed.GetTitle(),
+                    Message = StatusMethods.OperationFailed.GetDescription()
+                });
+            }
+
         }
 
         [HttpPost("recieveSmsCode")]
@@ -181,6 +214,16 @@ namespace OnlineBuy.Presentation.Controllers
                 default:
                     return null;
             }
+        }
+
+        [HttpGet("orders")]
+        public IActionResult Orders(string customerId)
+        {
+            var orders = _db.CustomerOrderRepository.GetOrders(customerId);
+            return Ok(new
+            {
+                orders
+            });
         }
 
     }

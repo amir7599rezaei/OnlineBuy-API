@@ -13,6 +13,7 @@ namespace OnlineBuy.Data.Models
         }
 
         public byte[] Content { get; set; }
+        public string FormatContent { get; set; }
 
         [Required]
         public string ProductId { get; set; }

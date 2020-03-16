@@ -137,7 +137,8 @@ namespace OnlineBuy.Presentation.Controllers
             var productImage = new ProductImage
             {
                 ProductId = imgaeRegister.ProductId,
-                Content = _db.ProductImageRepository.ConvertBase64ToByte(imgaeRegister.Image)
+                Content = _db.ProductImageRepository.ConvertBase64ToByte(imgaeRegister.Image),
+                FormatContent = "data:image/png;base64,"
             };
 
             await _db.ProductImageRepository.InsertAsync(productImage);
@@ -163,6 +164,6 @@ namespace OnlineBuy.Presentation.Controllers
                     Message = StatusMethods.OperationFailed.GetDescription()
                 });
             }
-        }
+        }        
     }
 }

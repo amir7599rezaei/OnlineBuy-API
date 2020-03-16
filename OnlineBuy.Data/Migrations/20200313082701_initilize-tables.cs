@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineBuy.Data.Migrations
 {
-    public partial class initilize_tables : Migration
+    public partial class initilizetables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -156,7 +156,9 @@ namespace OnlineBuy.Data.Migrations
                     ProductUnitId = table.Column<int>(nullable: false),
                     CartCount = table.Column<int>(nullable: false),
                     FinalPrice = table.Column<double>(nullable: false),
-                    OrderDate = table.Column<DateTime>(nullable: false)
+                    OrderDate = table.Column<DateTime>(nullable: false),
+                    StatusCode = table.Column<int>(nullable: true),
+                    StatusText = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -190,6 +192,7 @@ namespace OnlineBuy.Data.Migrations
                     DateModified = table.Column<DateTime>(nullable: false),
                     DateDeleted = table.Column<DateTime>(nullable: false),
                     Content = table.Column<byte[]>(nullable: true),
+                    FormatContent = table.Column<string>(maxLength: 20, nullable: true),
                     ProductId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

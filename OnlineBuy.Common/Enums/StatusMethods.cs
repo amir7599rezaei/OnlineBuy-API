@@ -16,6 +16,7 @@ namespace OnlineBuy.Common.Enums
         [EnumDescription(PersianMessages.NotSuccessRequest)]
         OperationFailed,
 
+        [EnumDescription(PersianMessages.SuccessSmsCode)]
         SuccessSmsCode,
 
         [EnumDescription(PersianMessages.WrongCodeOrMobile)]
@@ -29,5 +30,8 @@ namespace OnlineBuy.Common.Enums
 
         [EnumDescription(PersianMessages.SuccessCreateToken)]
         SuccessCreateToken,
+
+        [EnumDescription(PersianMessages.FailedSmsCode)]
+        FailedSmsCode
     }
 }

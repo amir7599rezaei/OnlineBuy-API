@@ -33,5 +33,9 @@ namespace OnlineBuy.Common.Messages.Persian
         public const string SuccessCreateToken = "کد احراز هویت با موفقیت ساختع شد";
 
         public const string AuthenticationFailed = "شما احراز هویت نشده اید";
+
+        public const string SuccessSmsCode = "ارسال موفقیت آمیز کد پیامکی احراز هویت";
+
+        public const string FailedSmsCode = "خطا در ارسال کد پیامکی احراز هویت";
     }
 }

@@ -10,8 +10,8 @@ using OnlineBuy.Data.DataContext;
 namespace OnlineBuy.Data.Migrations
 {
     [DbContext(typeof(OnlineBuyContext))]
-    [Migration("20200310155553_initilize_tables")]
-    partial class initilize_tables
+    [Migration("20200313082701_initilize-tables")]
+    partial class initilizetables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -139,6 +139,13 @@ namespace OnlineBuy.Data.Migrations
 
                     b.Property<int>("ProductUnitId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusText")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -298,6 +305,10 @@ namespace OnlineBuy.Data.Migrations
 
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FormatContent")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("ProductId")
                         .IsRequired()

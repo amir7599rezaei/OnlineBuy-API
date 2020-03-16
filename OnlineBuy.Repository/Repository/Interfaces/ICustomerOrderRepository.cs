@@ -8,5 +8,6 @@ namespace OnlineBuy.Repository.Repository.Interfaces
 {
     public interface ICustomerOrderRepository : IRepository<CustomerOrder>
     {
+        IEnumerable<object> GetOrders(string customerId);
     }
 }

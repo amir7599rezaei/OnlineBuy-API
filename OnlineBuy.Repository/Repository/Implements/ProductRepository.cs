@@ -18,7 +18,7 @@ namespace OnlineBuy.Repository.Repository.Implements
 
         public double GetFinalPrice(string productId)
         {
-            using (Data.DataContext.OnlineBuyContext context=new Data.DataContext.OnlineBuyContext())
+            using (Data.DataContext.OnlineBuyContext context = new Data.DataContext.OnlineBuyContext())
             {
                 return (from p in context.Products
                         join pp in context.ProductPrices on p.Id equals pp.ProductId
@@ -50,7 +50,8 @@ namespace OnlineBuy.Repository.Repository.Implements
                             UnitName = pu.Name,
                             ShowInCartCount = false,
                             CartCount = 1,
-                            Image = imgDef != null ? Convert.ToBase64String(imgDef.Content, 0, imgDef.Content.Length) : string.Empty,
+                            Image = imgDef != null ? imgDef.FormatContent +
+                            Convert.ToBase64String(imgDef.Content, 0, imgDef.Content.Length) : string.Empty,
                             ProductUnitId = pu.Id
 
                         }).ToArray();
