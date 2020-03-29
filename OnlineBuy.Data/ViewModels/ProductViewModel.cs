@@ -56,8 +56,7 @@ namespace OnlineBuy.Data.ViewModels
         }
 
         public class CartRegister
-        {            
-            public string CustomerId { get; set; }
+        {                        
             public ICollection<ProductOrder> ProductOrders { get; set; }
         }
 

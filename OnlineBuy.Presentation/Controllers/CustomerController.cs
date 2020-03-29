@@ -146,7 +146,7 @@ namespace OnlineBuy.Presentation.Controllers
                         Code = (int)StatusMethods.SuccessSmsCode,
                         Title = PersianMessages.CustomerTitle,
                         Status = StatusMethods.SuccessSmsCode.GetTitle(),
-                        Message=StatusMethods.SuccessSmsCode.GetDescription()
+                        Message = StatusMethods.SuccessSmsCode.GetDescription()
                     });
                 }
                 else
@@ -217,9 +217,10 @@ namespace OnlineBuy.Presentation.Controllers
         }
 
         [HttpGet("orders")]
-        public IActionResult Orders(string customerId)
+        [Authorized]
+        public IActionResult Orders()
         {
-            var orders = _db.CustomerOrderRepository.GetOrders(customerId);
+            var orders = _db.CustomerOrderRepository.GetOrders(GetIdentifyCode());
             return Ok(new
             {
                 orders

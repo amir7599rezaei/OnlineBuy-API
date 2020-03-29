@@ -16,10 +16,10 @@ namespace OnlineBuy.Repository.Repository.Implements
         {
 
         }
-
+        
         public IEnumerable<object> GetOrders(string customerId)
         {
-            using (OnlineBuyContext context=new OnlineBuyContext())
+            using (OnlineBuyContext context = new OnlineBuyContext())
             {
                 return (from p in context.Products
                         join c in context.CustomerOrders on p.Id equals c.ProductId

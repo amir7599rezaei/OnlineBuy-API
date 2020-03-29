@@ -10,6 +10,7 @@ using OnlineBuy.Common.ResultApiStructure;
 using OnlineBuy.Common.Utility;
 using OnlineBuy.Data.DataContext;
 using OnlineBuy.Data.Models;
+using OnlineBuy.Presentation.CustomFilters;
 using OnlineBuy.Repository.Infrastructure.Interfaces;
 using static OnlineBuy.Data.ViewModels.ProductViewModel;
 
@@ -91,6 +92,7 @@ namespace OnlineBuy.Presentation.Controllers
         }
 
         [HttpPost("cartRegister")]
+        [Authorized]
         public async Task<IActionResult> CartRegister(CartRegister cartRegister)
         {
             var customerOrders = new List<CustomerOrder>();
@@ -98,7 +100,7 @@ namespace OnlineBuy.Presentation.Controllers
             {
                 customerOrders.Add(new CustomerOrder
                 {
-                    CustomerId = cartRegister.CustomerId,
+                    CustomerId = GetIdentifyCode(),
                     ProductId = item.ProductId,
                     CartCount = item.CartCount,
                     FinalPrice = _db.ProductRepository.GetFinalPrice(item.ProductId),

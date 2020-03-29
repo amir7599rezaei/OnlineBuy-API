@@ -39,6 +39,7 @@ namespace OnlineBuy.Repository.Repository.Implements
                         join pu in context.ProductUnits on pp.ProductUnitId equals pu.Id
                         select new
                         {
+                            ProductId = p.Id,
                             ProductName = p.Name,
                             p.Title,
                             p.Description,
